@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+spec:
+  type: NodePort  # Garanta que o tipo é NodePort ou LoadBalancer para o Minikube conseguir expor
+  selector:
+    app: wordpress  # Tem de ser IGUAL ao matchLabels do Deployment
+  ports:
+    - port: 80
+      targetPort: 80
